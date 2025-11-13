@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성명·연락처 접수 테스트</title>
+<style>
+body { font-family:'Arial', sans-serif; background:#f4f6f8; margin:0; padding:0; }
+header { background:#004aad; color:white; text-align:center; padding:20px 0; }
+h1 { margin:0; font-size:28px; }
+main { max-width:600px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+form { display:flex; flex-direction:column; }
+label { margin-top:15px; font-weight:bold; }
+input { margin-top:5px; padding:10px; font-size:16px; border-radius:5px; border:1px solid #ccc; }
+button { margin-top:20px; padding:12px; font-size:18px; background:#004aad; color:white; border:none; border-radius:8px; cursor:pointer; }
+button:hover { background:#00308f; }
+.success { color:green; font-weight:bold; margin-top:15px; }
+</style>
+</head>
+<body>
+<header>
+<h1>성명·연락처 접수 테스트</h1>
+</header>
+<main>
+<p>성명과 연락처만 입력 후 제출해주세요.</p>
+<form id="rentalForm">
+<label for="name">성명</label>
+<input type="text" id="name" name="name" required>
+
+<label for="phone">연락처</label>
+<input type="tel" id="phone" name="phone" required>
+
+<button type="submit">접수 신청</button>
+<p class="success" id="successMsg" style="display:none;">접수가 완료되었습니다. 감사합니다!</p>
+</form>
+</main>
+
+<script>
+const form = document.getElementById('rentalForm');
+const successMsg = document.getElementById('successMsg');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const data = new FormData();
+    // TODO: 아래 entry ID를 실제 구글 폼에서 확인한 값으로 바꾸세요
+    data.append('entry.성명ID', document.getElementById('name').value); // 성명
+    data.append('entry.연락처ID', document.getElementById('phone').value); // 연락처
+
+    fetch('https://docs.google.com/forms/d/e/폼ID/formResponse', {
+        method:'POST',
+        mode:'no-cors',
+        body:data
+    }).then(() => {
+        successMsg.style.display = 'block';
+        form.reset();
+    });
+});
+</script>
+</body>
+</html>
