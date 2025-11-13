@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>벽산블루밍 10년 장기임대 접수</title>
+<title>성명·연락처 접수 테스트</title>
 <style>
 body { font-family:'Arial', sans-serif; background:#f4f6f8; margin:0; padding:0; }
 header { background:#004aad; color:white; text-align:center; padding:20px 0; }
 h1 { margin:0; font-size:28px; }
-main { max-width:800px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+main { max-width:600px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
 form { display:flex; flex-direction:column; }
 label { margin-top:15px; font-weight:bold; }
-input, select, textarea { margin-top:5px; padding:10px; font-size:16px; border-radius:5px; border:1px solid #ccc; }
+input { margin-top:5px; padding:10px; font-size:16px; border-radius:5px; border:1px solid #ccc; }
 button { margin-top:20px; padding:12px; font-size:18px; background:#004aad; color:white; border:none; border-radius:8px; cursor:pointer; }
 button:hover { background:#00308f; }
 .success { color:green; font-weight:bold; margin-top:15px; }
@@ -19,30 +19,16 @@ button:hover { background:#00308f; }
 </head>
 <body>
 <header>
-<h1>벽산블루밍 10년 장기임대 분양 접수</h1>
+<h1>성명·연락처 접수 테스트</h1>
 </header>
 <main>
-<p>아래 정보를 입력 후 신청해주세요. 빠른 접수를 위해 정확히 작성해주시기 바랍니다.</p>
+<p>성명과 연락처만 입력 후 제출해주세요.</p>
 <form id="rentalForm">
 <label for="name">성명</label>
 <input type="text" id="name" name="name" required>
 
 <label for="phone">연락처</label>
 <input type="tel" id="phone" name="phone" required>
-
-<label for="email">이메일</label>
-<input type="email" id="email" name="email" required>
-
-<label for="unit">희망 평형</label>
-<select id="unit" name="unit" required>
-<option value="">선택하세요</option>
-<option value="59㎡">59㎡</option>
-<option value="84㎡">84㎡</option>
-<option value="114㎡">114㎡</option>
-</select>
-
-<label for="message">추가 요청 사항</label>
-<textarea id="message" name="message" rows="4"></textarea>
 
 <button type="submit">접수 신청</button>
 <p class="success" id="successMsg" style="display:none;">접수가 완료되었습니다. 감사합니다!</p>
@@ -57,14 +43,11 @@ form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const data = new FormData();
-    // 실제 Google Form entry ID 적용
-    data.append('entry.1234567890', document.getElementById('name').value); // 성명
-    data.append('entry.2345678901', document.getElementById('phone').value); // 연락처
-    data.append('entry.3456789012', document.getElementById('email').value); // 이메일
-    data.append('entry.4567890123', document.getElementById('unit').value); // 희망 평형
-    data.append('entry.5678901234', document.getElementById('message').value); // 추가 요청 사항
+    // TODO: 아래 entry ID를 실제 구글 폼에서 확인한 값으로 바꾸세요
+    data.append('entry.성명ID', document.getElementById('name').value); // 성명
+    data.append('entry.연락처ID', document.getElementById('phone').value); // 연락처
 
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/formResponse', {
+    fetch('https://docs.google.com/forms/d/e/폼ID/formResponse', {
         method:'POST',
         mode:'no-cors',
         body:data
@@ -76,3 +59,4 @@ form.addEventListener('submit', function(e) {
 </script>
 </body>
 </html>
+
