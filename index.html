@@ -1,62 +1,295 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>성명·연락처 접수 테스트</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>지행역 벽산블루밍 - 프리미엄 분양 안내</title>
+
+<!-- Noto Sans KR 폰트 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 <style>
-body { font-family:'Arial', sans-serif; background:#f4f6f8; margin:0; padding:0; }
-header { background:#004aad; color:white; text-align:center; padding:20px 0; }
-h1 { margin:0; font-size:28px; }
-main { max-width:600px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-form { display:flex; flex-direction:column; }
-label { margin-top:15px; font-weight:bold; }
-input { margin-top:5px; padding:10px; font-size:16px; border-radius:5px; border:1px solid #ccc; }
-button { margin-top:20px; padding:12px; font-size:18px; background:#004aad; color:white; border:none; border-radius:8px; cursor:pointer; }
-button:hover { background:#00308f; }
-.success { color:green; font-weight:bold; margin-top:15px; }
+  /* === 기본 스타일 === */
+  body {
+    margin: 0;
+    background: #0f1115;
+    color: #fff;
+    font-family: "Noto Sans KR", sans-serif;
+    line-height: 1.7;
+  }
+
+  /* === 히어로 섹션 === */
+  .hero {
+    height: 70vh;
+    background: url('https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1500') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    font-weight: 700;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: #cfcfcf;
+    margin-top: 8px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.6);
+  }
+
+  /* === 공통 섹션 === */
+  section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: auto;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+
+  section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .sub {
+    color: #b4b4b4;
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  /* 박스 */
+  .box {
+    background: rgba(255,255,255,0.08);
+    padding: 22px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .highlight {
+    color: #76c7ff;
+    font-weight: 600;
+  }
+
+  /* 플로팅 버튼 */
+  .floating {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1a73e8;
+    color: #fff;
+    padding: 14px 22px;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    text-decoration: none;
+    z-index: 999;
+  }
+
+  .floating:hover {
+    background: #4b8ff0;
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 30px; }
+    .hero p { font-size: 15px; }
+    h2 { font-size: 24px; }
+  }
 </style>
 </head>
+
+
+
 <body>
-<header>
-<h1>성명·연락처 접수 테스트</h1>
-</header>
-<main>
-<p>성명과 연락처만 입력 후 제출해주세요.</p>
-<form id="rentalForm">
-<label for="name">성명</label>
-<input type="text" id="name" name="name" required>
 
-<label for="phone">연락처</label>
-<input type="tel" id="phone" name="phone" required>
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
 
-<button type="submit">접수 신청</button>
-<p class="success" id="successMsg" style="display:none;">접수가 완료되었습니다. 감사합니다!</p>
-</form>
-</main>
+<div class="hero">
+  <div>
+    <h1>프리미엄 신축<br>지행역 벽산블루밍</h1>
+    <p>자연 · 교육 · 교통을 모두 갖춘 426세대 프라이빗 단지</p>
+  </div>
+</div>
+
+
+
+<!-- ========================= -->
+<!-- 섹션 01 -->
+<!-- ========================= -->
+
+<section>
+  <h2>프리미엄 신축 단지 소개</h2>
+  <div class="sub">지하 2층 ~ 지상 24층, 총 426세대</div>
+
+  <p>
+    낮은 건폐율과 우수한 용적률로 쾌적한 생활환경을 제공합니다.<br>
+    시행 <span class="highlight">HC Partners</span> · 시공 <span class="highlight">벽산엔터프라이즈</span> · 신탁 <span class="highlight">무궁화신탁</span>
+  </p>
+
+  <div class="box">
+    - 대지면적: 23,727㎡<br>
+    - 세대수 / 주차: 426세대 / 569대(세대당 1.34대)<br>
+    - 타입: 84A · 84B · 84C · 84D / 131㎡
+  </div>
+</section>
+
+
+
+<!-- ========================= -->
+<!-- 섹션 02 -->
+<!-- ========================= -->
+
+<section>
+  <h2>01. 사업 개요</h2>
+  <div class="sub">426세대 프라이빗 단지, 자연 속의 고품격 주거</div>
+
+  <p>낮은 건폐율 19.41%, 우수한 용적률 설계 215.91%로 자연 친화적 생활환경을 제공합니다.</p>
+
+  <div class="box">
+    <strong>기본 정보</strong><br><br>
+    위치: 동두천시 지행동 산 2-1번지<br>
+    대지면적: 23,727㎡<br>
+    규모: 지하2층~지상24층, 5개 동<br>
+    주차: 569대<br>
+    시행: HC Partners / 시공: 벽산엔터프라이즈 / 신탁: 무궁화신탁
+  </div>
+</section>
+
+
+
+<!-- ========================= -->
+<!-- 섹션 03 -->
+<!-- ========================= -->
+
+<section>
+  <h2>02. 입지 가치</h2>
+  <div class="sub">GTX-C 생활권 + 도보역세권</div>
+
+  <div class="box">
+    <strong>교통 프리미엄</strong><br><br>
+    - 지행역 도보권<br>
+    - GTX-C 덕정 환승 + 동두천 연장 계획<br>
+    - 제2외곽순환도로 파주~양주 개통<br>
+    - 3번 국도 · 47호선 직결
+  </div>
+
+  <div class="box">
+    <strong>교육 프리미엄</strong><br><br>
+    - 반경 1km 초·중·고 밀집<br>
+    - 동두천외고 · 중앙고 도보권<br>
+    - 신한대 · 동양대 캠퍼스 인접
+  </div>
+
+  <div class="box">
+    <strong>생활 인프라</strong><br><br>
+    - 대형마트, CGV, 시청, 운동장, 시장 5분권<br>
+    - 숲 · 녹지 · 하천 인접
+  </div>
+
+  <div class="box">
+    <strong>미래가치</strong><br><br>
+    - 동두천 국가산업단지 1차 조성<br>
+    - 제생병원 오픈 예정<br>
+    - 반려동물 테마파크(2027)<br>
+    - 경기도 일자리재단 이전(2027)
+  </div>
+</section>
+
+
+
+<!-- ========================= -->
+<!-- 섹션 04 -->
+<!-- ========================= -->
+
+<section>
+  <h2>03. 단지 설계</h2>
+  <div class="box">
+    <strong>토지 이용 계획</strong><br><br>
+    - 공동주택용지 79.22%<br>
+    - 공원·녹지 20.78%<br>
+    - 도로 1,980㎡
+  </div>
+
+  <div class="box">
+    <strong>커뮤니티 시설</strong><br><br>
+    - 전 연령 복합 커뮤니티<br>
+    - 조경 · 녹지 라인 강화<br>
+    - 어린이 · 실버 · 가족 단위 특화 설계
+  </div>
+</section>
+
+
+
+<!-- ========================= -->
+<!-- 섹션 05 -->
+<!-- ========================= -->
+
+<section>
+  <h2>04. 첨단 시스템</h2>
+
+  <div class="box">
+    <strong>안심 · 편의 시스템</strong><br><br>
+    - 차량 위치 인식 / 주차 유도<br>
+    - LED 지하주차장<br>
+    - 무인택배 · 스마트폰 제어 App<br>
+    - 엘리베이터 원패스<br>
+    - AI 음성 / 욕실 센서 / 대기전력 차단
+  </div>
+
+  <div class="box">
+    <strong>친환경 시스템</strong><br><br>
+    - 우수 재활용 시스템<br>
+    - 태양광 패널<br>
+    - 에너지 효율 예비 1+
+  </div>
+</section>
+
+
+
+<!-- ========================= -->
+<!-- 플로팅 문의 버튼 -->
+<!-- ========================= -->
+
+<a href="tel:01000000000" class="floating">문의하기 ☎</a>
+
+
+
+<!-- ========================= -->
+<!-- 스크롤 애니메이션 JS -->
+<!-- ========================= -->
 
 <script>
-const form = document.getElementById('rentalForm');
-const successMsg = document.getElementById('successMsg');
+  const sections = document.querySelectorAll("section");
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  const revealOnScroll = () => {
+    const trigger = window.innerHeight * 0.88;
 
-    const data = new FormData();
-    // TODO: 아래 entry ID를 실제 구글 폼에서 확인한 값으로 바꾸세요
-    data.append('entry.성명ID', document.getElementById('name').value); // 성명
-    data.append('entry.연락처ID', document.getElementById('phone').value); // 연락처
-
-    fetch('https://docs.google.com/forms/d/e/폼ID/formResponse', {
-        method:'POST',
-        mode:'no-cors',
-        body:data
-    }).then(() => {
-        successMsg.style.display = 'block';
-        form.reset();
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < trigger) sec.classList.add("reveal");
     });
-});
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
 </script>
+
+
 </body>
 </html>
-
